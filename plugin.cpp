@@ -2,11 +2,17 @@
 #include "core.hpp"
 #include "export_types.hpp"
 
+#ifdef _WIN32
+#define DLL_EXPORT __declspec(dllexport)
+#else
+#define DLL_EXPORT
+#endif
+
 extern "C"
 {
-__declspec(dllexport) int foo_class_template();
-__declspec(dllexport) int foo_class_function_template();
-__declspec(dllexport) int get_value();
+DLL_EXPORT int foo_class_template();
+DLL_EXPORT int foo_class_function_template();
+DLL_EXPORT int get_value();
 }
 
 int foo_class_template()
