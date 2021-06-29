@@ -4,9 +4,15 @@
 
 extern "C"
 {
+__declspec(dllexport) int plugin_non_template();
 __declspec(dllexport) int foo_class_template();
 __declspec(dllexport) int foo_class_function_template();
 __declspec(dllexport) int get_value();
+}
+
+int plugin_non_template()
+{
+    return non_template();
 }
 
 int foo_class_template()

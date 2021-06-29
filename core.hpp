@@ -24,6 +24,8 @@
 #define CORE_DECL
 #endif
 
+CORE_DECL int non_template();
+
 template<typename>
 struct /*CORE_API*/ foo_template {
     CORE_DECL static int get();
