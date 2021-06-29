@@ -25,11 +25,11 @@
 #endif
 
 template<typename>
-struct CORE_API foo_template {
+struct /*CORE_API*/ foo_template {
     CORE_DECL static int get();
 };
 
-struct CORE_API foo {
+struct /*CORE_API*/ foo {
     template<typename>
     CORE_DECL static int get();
 };

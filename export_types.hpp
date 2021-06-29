@@ -5,5 +5,5 @@
 struct old{};
 
 extern template struct foo_template<old>;
-extern template int foo::get<old>();
-extern template int get<old>();
+extern template int CORE_API foo::get<old>();
+extern template int CORE_API get<old>();
