@@ -10,7 +10,7 @@
 
 extern "C"
 {
-DLL_EXPORT int plugin_non_template()
+DLL_EXPORT int plugin_non_template();
 DLL_EXPORT int foo_class_template();
 DLL_EXPORT int foo_class_function_template();
 DLL_EXPORT int get_value();

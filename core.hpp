@@ -37,4 +37,4 @@ struct /*CORE_API*/ foo {
 };
 
 template<typename>
-CORE_DECL inline int get();
+CORE_DECL int get();
