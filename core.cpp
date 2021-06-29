@@ -61,6 +61,7 @@ int main(int argc, char **argv)
     }
 
     // preincrement all the values
+    int nonTemplate = non_template();
     int fooClassTemplate = foo_template<old>::get();
     int fooClassFunctionTemplate = foo::get<old>();
     int getTemplateFunction = get<old>();
@@ -69,10 +70,12 @@ int main(int argc, char **argv)
     {
         dynalo::library plugin{pluginPath.string()};
 
+        auto pNonTemplate = plugin.get_function<int()>("plugin_non_template");
         auto pFooClassTemplate = plugin.get_function<int()>("foo_class_template");
         auto pFooClassFunctionTemplate = plugin.get_function<int()>("foo_class_function_template");
         auto pGetValue = plugin.get_function<int()>("get_value");
 
+        int pluginNonTemplate = pNonTemplate();
         int pluginFooClassTemplate = pFooClassTemplate();
         int pluginFooClassFunctionTemplate = pFooClassFunctionTemplate();
         int pluginGetTemplateFunction = pGetValue();
@@ -82,7 +85,9 @@ int main(int argc, char **argv)
                 "\nClass function template: " <<                                      //
                 fooClassFunctionTemplate + 1 << " : " << pluginFooClassFunctionTemplate <<//
                 "\nFunction template: " <<                                            //
-                getTemplateFunction + 1 << " : " << pluginGetTemplateFunction << std::endl;
+                getTemplateFunction + 1 << " : " << pluginGetTemplateFunction <<
+                "\nNon-template function: " << //
+                nonTemplate + 1 << " : " << pluginNonTemplate << std::endl;
 
     } catch (const std::runtime_error &error)
     {

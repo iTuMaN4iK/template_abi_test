@@ -4,6 +4,12 @@
 
 #include "core.hpp"
 
+int non_template()
+{
+    static int val = 0;
+    return ++val;
+}
+
 template<typename>
 int get()
 {
